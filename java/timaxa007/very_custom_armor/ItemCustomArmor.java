@@ -2,13 +2,15 @@ package timaxa007.very_custom_armor;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 
 public class ItemCustomArmor extends ItemCustomArmorDummy {
 
-	public ItemCustomArmor(int armorType) {
-		super(armorType);
+	public ItemCustomArmor(ItemArmor.ArmorMaterial armorMaterial, int armorType) {
+		super(armorMaterial, armorType);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -33,6 +35,12 @@ public class ItemCustomArmor extends ItemCustomArmorDummy {
 		case 0:return acm3;
 		default:return null;
 		}
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack is, int armorSlot) {
+		return ProxyClient.model;
 	}
 
 }

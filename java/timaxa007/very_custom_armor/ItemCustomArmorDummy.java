@@ -2,23 +2,14 @@ package timaxa007.very_custom_armor;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 
-public abstract class ItemCustomArmorDummy extends Item {
+public abstract class ItemCustomArmorDummy extends ItemArmor {
 
-	private final int armorType;
-
-	public ItemCustomArmorDummy(int armorType) {
-		super();
-		this.armorType = armorType;
-	}
-
-	@Override
-	public boolean isValidArmor(ItemStack stack, int armorType, Entity entity) {
-		return this.armorType == armorType;
+	public ItemCustomArmorDummy(ItemArmor.ArmorMaterial armorMaterial, int armorType) {
+		super(armorMaterial, 0, armorType);
 	}
 
 	@SideOnly(Side.CLIENT)
